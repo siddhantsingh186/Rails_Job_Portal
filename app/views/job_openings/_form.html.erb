@@ -1,0 +1,38 @@
+<%= form_with model: job_opening do |form|%>
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+    <% job_opening.errors.full_messages_for(:title).each do |message|%>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+    <% job_opening.errors.full_messages_for(:description).each do |message|%>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :latitude %>
+    <%= form.number_field :latitude %>
+    <% job_opening.errors.full_messages_for(:latitude).each do |message|%>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :longitude %>
+    <%= form.number_field :longitude %>
+    <% job_opening.errors.full_messages_for(:longitude).each do |message|%>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
