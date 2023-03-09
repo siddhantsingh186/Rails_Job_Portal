@@ -1,73 +1,70 @@
 class JobOpeningsController < ApplicationController
-  before_action :authenticate_admin!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_job_opening, only: %i[ show edit update destroy ]
 
+  # GET /job_openings or /job_openings.json
   def index
-    # @job_openings = JobOpening.near(params[:location], 10) if params[:location].present?
     @job_openings = JobOpening.all
   end
-    
+
+  # GET /job_openings/1 or /job_openings/1.json
   def show
-    @job_opening = JobOpening.find(params[:id])
   end
 
+  # GET /job_openings/new
   def new
     @job_opening = JobOpening.new
   end
 
+  # GET /job_openings/1/edit
+  def edit
+  end
+
+  # POST /job_openings or /job_openings.json
   def create
     @job_opening = JobOpening.new(job_opening_params)
 
-    if @job_opening.save
-      redirect_to @job_opening
-    else
-      render :new , status: :unprocessable_entity
+    respond_to do |format|
+      if @job_opening.save
+        format.html { redirect_to job_opening_url(@job_opening), notice: "Job opening was successfully created." }
+        format.json { render :show, status: :created, location: @job_opening }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @job_opening.errors, status: :unprocessable_entity }
+      end
     end
   end
 
-  def edit
-    @job_opening = JobOpening.find(params[:id])
-  end
-
+  # PATCH/PUT /job_openings/1 or /job_openings/1.json
   def update
-    @job_opening = JobOpening.find(params[:id])
-
-    if @job_opening.update(job_opening_params)
-      redirect_to @job_opening
-    else
-      render :edit , status: :unprocessable_entity
+    respond_to do |format|
+      if @job_opening.update(job_opening_params)
+        format.html { redirect_to job_opening_url(@job_opening), notice: "Job opening was successfully updated." }
+        format.json { render :show, status: :ok, location: @job_opening }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @job_opening.errors, status: :unprocessable_entity }
+      end
     end
   end
 
+  # DELETE /job_openings/1 or /job_openings/1.json
   def destroy
-    @job_opening = JobOpening.find(params[:id])
     @job_opening.destroy
 
-    redirect_to root_path, status: :see_other
-  end
-
-  # def approve
-  #   @applicant = Applicant.find(params[:id])
-  #   @applicant.update(status: 'approved')
-
-  #   redirect_to job_opening_path(@applicant.job_opening)
-  # end
-
-  # def reject
-  #   @applicant = Applicant.find(params[:id])
-  #   @applicant.update(status: 'rejected')
-
-  #   redirect_to job_opening_path(@applicant.job_opening)
-  # end
-
-  private
-
-  def job_opening_params
-    params.require(:job_opening).permit(:title, :description, :latitude, :longitude)
-  end
-
-  def authenticate_admin!
-    authenticate_or_request_with_http_basic do |username, password|
-      username == 'admin' && password == 'password'
+    respond_to do |format|
+      format.html { redirect_to job_openings_url, notice: "Job opening was successfully destroyed." }
+      format.json { head :no_content }
     end
   end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_job_opening
+      @job_opening = JobOpening.find(params[:id])
+    end
+
+    # Only allow a list of trusted parameters through.
+    def job_opening_params
+      params.require(:job_opening).permit(:title, :description, :company_name, :salary, :location, :education_requirements, :experience_years, :skills)
+    end
 end

@@ -1,24 +1,22 @@
-<h1> Showing all job openings </h1>
-<%# Display only when job opening is not empty %>
+<p style="color: green"><%= notice %></p>
 
+<%# Is job opening is empty show no job opening else render all job openings %>
+
+<h1>Job openings</h1>
 <% if @job_openings.empty? %>
-    <p> No job openings found </p>
+  <p>No job openings</p>
 <% else %>
-    <table>
-        <thead>
-        <tr>
-            <th>Job Titles</th>
-        </tr>
-        </thead>
-
-        <tbody>
-        <% @job_openings.each do |job_opening| %>
-            <tr>
-                <td><%= link_to job_opening.title, job_opening %></td>
-            </tr>
-        <% end %>
-        </tbody>
-    </table>
+  <div id="job_openings">
+    <% @job_openings.each do |job_opening| %>
+      <p>
+        <strong>Job Opening:</strong>
+        <%= job_opening.title %> at <%= job_opening.company_name %>
+      </p>
+      <p>
+        <%= link_to "Show this job opening", job_opening %>
+      </p>
+    <% end %>
+  </div>
 <% end %>
 
-<%= link_to "New Job Opening", new_job_opening_path %>
+<%= link_to "New job opening", new_job_opening_path %>

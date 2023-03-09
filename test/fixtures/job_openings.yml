@@ -3,11 +3,23 @@
 one:
   title: MyString
   description: MyText
+  company_name: MyString
+  salary: 1
+  location: MyString
+  education_requirements: MyString
+  experience_years: 1
+  skills: MyString
   latitude: 1.5
   longitude: 1.5
 
 two:
   title: MyString
   description: MyText
+  company_name: MyString
+  salary: 1
+  location: MyString
+  education_requirements: MyString
+  experience_years: 1
+  skills: MyString
   latitude: 1.5
   longitude: 1.5
