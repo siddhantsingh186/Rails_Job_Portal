@@ -2,9 +2,19 @@
 
 <%= render @job_opening %>
 
-<div>
+<%# Show option for apply when i am logged in and option for edit and destroy when i am not logged in %>
+<% if applicant_signed_in? %>
+  <div>
+  <%= link_to "Apply for this job opening", new_job_opening_application_path(@job_opening) %> |
+  <%= link_to "Back to job openings", job_openings_path %>
+  </div>
+<% else %>
+  <div>
   <%= link_to "Edit this job opening", edit_job_opening_path(@job_opening) %> |
   <%= link_to "Back to job openings", job_openings_path %>
+  <%= link_to "Destroy this job opening", @job_opening, method: :delete%>
+  </div>
+<% end %>
 
-  <%= button_to "Destroy this job opening", @job_opening, method: :delete %>
-</div>
+
+

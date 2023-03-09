@@ -18,5 +18,13 @@
     <% end %>
   </div>
 <% end %>
+<%# Show new job opening when applicant is not signed in %>
+<% if applicant_signed_in? %>
+  <p>
+  </p>
+<%else%>
+  <p>
+    <%= link_to "New job opening", new_job_opening_path %>
+  </p>
+<% end %>
 
-<%= link_to "New job opening", new_job_opening_path %>

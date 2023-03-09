@@ -10,7 +10,16 @@
     <%= javascript_importmap_tags %>
   </head>
 
+  <nav>
+    <% if applicant_signed_in? %>
+      <%= link_to "Sign out", destroy_applicant_session_path, method: :delete %>
+    <% else %>
+      <%= link_to "Sign in", new_applicant_session_path %>
+    <% end %>
+  </nav>
   <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>
