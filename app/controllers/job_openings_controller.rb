@@ -57,17 +57,6 @@ class JobOpeningsController < ApplicationController
     end
   end
 
-  def apply
-    @job_opening = JobOpening.find(params[:id])
-    @application = @job_opening.applications.build(applicant_id: current_applicant.id)
-
-    if @application.save
-      redirect_to job_opening_url(@job_opening), notice: "Application submitted successfully."
-    else
-      redirect_to job_opening_url(@job_opening), notice: "Application failed to submit."
-    end
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_job_opening

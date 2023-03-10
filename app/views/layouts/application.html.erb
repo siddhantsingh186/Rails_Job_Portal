@@ -12,8 +12,11 @@
 
   <nav>
     <% if applicant_signed_in? %>
-      <%= link_to "Sign out", destroy_applicant_session_path, method: :delete %>
+      <%= link_to "Home", root_path %>
+      <%= link_to "Job openings", job_openings_path %>
+      <%= link_to "Sign out", destroy_applicant_session_path, method: :delete%>
     <% else %>
+      <%= link_to "Home", root_path %>
       <%= link_to "Sign in", new_applicant_session_path %>
     <% end %>
   </nav>

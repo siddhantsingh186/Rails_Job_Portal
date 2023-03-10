@@ -1,18 +1,32 @@
 <p style="color: green"><%= notice %></p>
-
+<% stylesheet_link_tag "job_opening_show" ,"data-turbo-track": "reload"%>
 <%= render @job_opening %>
 
 <%# Show option for apply when i am logged in and option for edit and destroy when i am not logged in %>
 <% if applicant_signed_in? %>
-  <div>
-  <%= link_to "Apply for this job opening", new_job_opening_application_path(@job_opening) %> |
-  <%= link_to "Back to job openings", job_openings_path %>
+  <div class ="applicant_buttons">
+  <button>
+    <%= link_to "Apply", new_applicant_job_application_path(current_applicant, job_opening_id: @job_opening.id) %>
+  </button>
+  <button>
+    <%= link_to "Back to openings", job_openings_path %>
+  </button>
   </div>
 <% else %>
-  <div>
-  <%= link_to "Edit this job opening", edit_job_opening_path(@job_opening) %> |
-  <%= link_to "Back to job openings", job_openings_path %>
-  <%= link_to "Destroy this job opening", @job_opening, method: :delete%>
+  <div class="adminbuttons">
+  <button>
+  <%= link_to "Edit this job opening", edit_job_opening_path(@job_opening) %>
+  </button>
+  <button>
+  <%= link_to "Back to job openings", job_openings_path %> 
+  </button>
+  <button>
+  <%= link_to "Destroy this job opening", @job_opening, method: :delete%> 
+  </button>
+  <%# Write a link to show all applications of this particular jobid %>
+  <button>
+  <%= link_to "Show all applications for this job opening", job_opening_job_applications_path(@job_opening) %>
+  </button>
   </div>
 <% end %>
 

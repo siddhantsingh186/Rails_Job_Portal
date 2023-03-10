@@ -1,0 +1,23 @@
+<p style="color: green"><%= notice %></p>
+<%stylesheet_link_tag "job_applications_index" ,"data-turbo-track": "reload"%>
+<h1 style="display: flex; justify-content: center; font-family: monospace; font-size: 30px; margin-top: 20px; margin-bottom: 20px;"> Job Applications </h1>
+
+<% if @job_applications.empty? %>
+  <p>No job applications</p>
+<% else %>
+<div id = "job_applications">
+    <% @job_applications.each do |job_application| %>
+        <p>
+        <strong style="font-family: monospace;font-size: 18px;display :flex;justify-content: center;">Job Application Id: <%=job_application.id%></strong><br/>
+        <%= job_application.name %> applied for <%= job_application.job_opening.title %> at <%= job_application.job_opening.company_name %> , <%= job_application.job_opening.location %>
+        </p>
+        <%# Add accept and reject buttons %>
+        <p>
+            <button>
+            <%= link_to "Show application", job_opening_job_application_path(job_application.job_opening_id, job_application.id) %>
+            </button>
+        </p>
+
+    <% end %>
+</div> 
+<% end %>

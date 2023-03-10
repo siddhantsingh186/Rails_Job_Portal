@@ -1,5 +1,5 @@
 class JobOpening < ApplicationRecord
-  has many  :applications
+  has_many  :applications
   validates :title, presence: true
   validates :description, presence: true, length: { minimum: 10 }
   validates :company_name, presence: true

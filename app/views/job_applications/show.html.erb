@@ -1,0 +1,18 @@
+<p style="color: green"><%= notice %></p>
+<% stylesheet_link_tag "job_applications_show" ,"data-turbo-track": "reload"%>
+<%= render @job_application %>
+
+<div class="applicationbuttons">
+    <%# Define accept and reject buttons here %>
+    <button>
+    <%= link_to "Back to job applications" , job_opening_job_applications_path(@job_application.job_opening_id) %>
+    </button>
+    <button>
+        <%# link to job_applications/id/accept %>
+        <%= link_to "Accept", accept_job_application_path(@job_application.id) %>
+    </button>
+    <button>
+        <%# link to job_applications/id/reject %>
+        <%= link_to "Reject", reject_job_application_path(@job_application.id) %>
+    </button>
+</div>

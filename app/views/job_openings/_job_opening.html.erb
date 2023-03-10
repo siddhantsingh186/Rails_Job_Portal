@@ -1,4 +1,5 @@
-<div id="<%= dom_id job_opening %>">
+<% stylesheet_link_tag "job_opening_show" ,"data-turbo-track": "reload"%>
+<div id="<%= dom_id job_opening %>" class="jobcard">
   <p>
     <strong>Title:</strong>
     <%= job_opening.title %>

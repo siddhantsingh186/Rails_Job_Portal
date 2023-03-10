@@ -13,3 +13,70 @@
  *= require_tree .
  *= require_self
  */
+
+ nav{
+    display: flex;
+    column-gap: 100px;
+    justify-content: end;
+    flex-wrap: wrap;
+    padding-top: 10px;
+    padding-bottom: 12px;
+    padding-right: 90px;
+    font-family: monospace;
+    font-size: 20px;
+    background-color: lightblue;
+ }
+
+ a{
+    text-decoration: none;
+ }
+
+ .landing_top{
+    display: flex;
+ }
+ .landing-top-left{
+    display: flex;
+ }
+ .signin{
+   background-color: cornsilk;
+   padding: 8px;
+   border-radius: 10px;
+ }
+ .landing_top_left h1{
+   font-family: math;
+    display: flex;
+    justify-content: center;
+    margin-top: 90px;
+ }
+ .landing_top_left p{
+   display: flex;
+    line-height: 28px;
+    text-align: center;
+    font-family: monospace;
+ }
+
+ form{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+   width: fit-content;
+   margin-left: auto;
+   margin-right: auto;
+   padding: 28px;
+   border-radius: 8px;
+   display: flex;
+   row-gap: 19px;
+ }
+
+ form h2{
+   font-family: math;
+   font-size: 30px;
+   margin-bottom: 20px;
+ }
+
+ form .field{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+ }

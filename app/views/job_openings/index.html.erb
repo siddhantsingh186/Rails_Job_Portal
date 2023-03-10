@@ -1,19 +1,20 @@
 <p style="color: green"><%= notice %></p>
-
+<%stylesheet_link_tag "job_opening_index" ,"data-turbo-track": "reload"%>
 <%# Is job opening is empty show no job opening else render all job openings %>
 
-<h1>Job openings</h1>
+<h1 class="jobopeninghead">Job openings</h1>
 <% if @job_openings.empty? %>
   <p>No job openings</p>
 <% else %>
   <div id="job_openings">
     <% @job_openings.each do |job_opening| %>
       <p>
-        <strong>Job Opening:</strong>
+        <strong style ="font-family: monospace;
+    font-size: 18px;">Job Opening:</strong>
         <%= job_opening.title %> at <%= job_opening.company_name %>
       </p>
-      <p>
-        <%= link_to "Show this job opening", job_opening %>
+      <p class="showlink">
+        <%= link_to "Show opening", job_opening %>
       </p>
     <% end %>
   </div>
@@ -23,8 +24,8 @@
   <p>
   </p>
 <%else%>
-  <p>
+  <button class="newjobbutton">
     <%= link_to "New job opening", new_job_opening_path %>
-  </p>
+  </button>
 <% end %>
 

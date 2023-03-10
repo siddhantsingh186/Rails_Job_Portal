@@ -1,0 +1,59 @@
+<%stylesheet_link_tag "job_applications_show" ,"data-turbo-track": "reload"%>
+<div id="<%= dom_id job_application %>" class="applicationdetails">
+
+<p>
+    <strong>Name :</strong>
+    <%= job_application.name %>
+</p>    
+
+<p>
+    <strong>Email :</strong>
+    <%= job_application.email %>
+</p>
+
+<p>
+    <strong>Phone :</strong>
+    <%= job_application.phone %>
+</p>
+
+<p>
+    <strong>Resume Link:</strong>
+    <%= job_application.resume_link %>
+</p>
+
+<p>
+    <strong>Work Experience:</strong>
+    <%= job_application.work_experience %>
+</p>
+
+<p>
+    <strong>Education:</strong>
+    <%= job_application.education %>
+</p>
+
+<p>
+    <strong>Address Line 1:</strong>
+    <%= job_application.address_line_1 %>
+</p>
+
+<p>
+    <strong>Address Line 2:</strong>
+    <%= job_application.address_line_2 %>
+</p>
+
+<p>
+    <strong>City:</strong>
+    <%= job_application.city %>
+</p>
+
+<p>
+    <strong>State:</strong>
+    <%= job_application.state %>
+</p>
+
+<p>
+    <strong>Zip Code:</strong>
+    <%= job_application.zip %>
+</p>
+
+</div>

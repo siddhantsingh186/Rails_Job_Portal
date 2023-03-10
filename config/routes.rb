@@ -5,14 +5,24 @@ Rails.application.routes.draw do
   # root "articles#index"
   # Write root path to login page
 
-  root "job_openings#index"
+  root "landing_page#index" 
+
+
   resources :job_openings do
-    resources :applications
+    resources :job_applications
   end
 
   resources :applicants do
-    resources :applications
+    resources :job_applications
   end
+  
+  resources :job_applications do
+    member do
+      get :accept
+      get :reject
+    end
+  end
+
   
 
 end
