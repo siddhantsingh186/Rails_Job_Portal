@@ -7,11 +7,11 @@
     <button>
     <%= link_to "Back to job applications" , job_opening_job_applications_path(@job_application.job_opening_id) %>
     </button>
-    <button>
+    <button style="background-color: greenyellow;">
         <%# link to job_applications/id/accept %>
         <%= link_to "Accept", accept_job_application_path(@job_application.id) %>
     </button>
-    <button>
+    <button style="background-color: orangered;">
         <%# link to job_applications/id/reject %>
         <%= link_to "Reject", reject_job_application_path(@job_application.id) %>
     </button>

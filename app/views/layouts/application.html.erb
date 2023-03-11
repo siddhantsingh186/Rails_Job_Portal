@@ -11,6 +11,13 @@
   </head>
 
   <nav>
+    <div style="
+    display: flex;
+    margin-right: auto;
+    margin-left: 19px;">
+    <%# Set the height and width of the image inside the embedded ruby tag %>
+    <%= image_tag("joblogo1.svg", :height => '36', :width => '37') %>
+    </div>
     <% if applicant_signed_in? %>
       <%= link_to "Home", root_path %>
       <%= link_to "Job openings", job_openings_path %>

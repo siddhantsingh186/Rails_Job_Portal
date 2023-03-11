@@ -10,3 +10,73 @@
       <%# Add landing.png here %>
     <%= image_tag("landing.png") %>
 </div>
+
+<div class="landing_middle" style="display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 60px;">
+    <div class="landing_middle_top" style="display: flex;
+    flex-direction: column;
+    justify-content: center;">
+        <h1 style="text-align: center;
+    font-family: monospace;"
+        > Browse Categories </h1>
+        <p style="margin-top: 15px;
+    font-family: math;
+    font-size: 15px;
+    color: gray;
+    margin-left: auto;
+    margin-right: auto;
+    "> Most popular categories of portal , sorted by popularity </p>
+    </div>
+    <div class="landing_middle_bottom" style="display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-left: 212px;
+    padding-right: 175px;
+    column-gap: 32px;
+    row-gap: 28px;
+    ">
+        <div class="imgcard">
+            <%=image_tag("finance.png" , style: "width: 170px;height: 150px;")%>
+            <p class="imgcard_heading"> Finance </p>
+            <p class="imgcard_text"> (4286 jobs) </p>
+        </div>
+        <div class="imgcard">
+            <%=image_tag("sales.png" , style: "width: 170px;height: 150px;")%>
+            <p class="imgcard_heading"> Sales/Marketing </p>
+            <p class="imgcard_text"> (2000 jobs) </p>
+        </div>
+        <div class="imgcard">
+            <%=image_tag("education.png" , style: "width: 170px;height: 150px;")%>
+            <p class="imgcard_heading"> Education/Training </p>
+            <p class="imgcard_text"> (1450 jobs) </p>
+        </div>
+        <div class="imgcard">
+            <%=image_tag("technologies.png" , style: "width: 170px;height: 150px;")%>
+            <p class="imgcard_heading"> Technologies </p>
+            <p class="imgcard_text"> (5100 jobs) </p>
+        </div>
+        <div class="imgcard">
+            <%=image_tag("art.png" , style: "width: 170px;height: 150px;")%>
+            <p class="imgcard_heading"> Art/Design </p>
+            <p class="imgcard_text"> (5079 jobs) </p>
+        </div>
+        <div class="imgcard">
+            <%=image_tag("healthcare.png" , style: "width: 170px;height: 150px;")%>
+            <p class="imgcard_heading"> Healthcare </p>
+            <p class="imgcard_text"> (3235 jobs) </p>
+        </div>
+        <div class="imgcard">
+            <%=image_tag("science.png" , style: "width: 170px;height: 150px;")%>
+            <p class="imgcard_heading"> Science </p>
+            <p class="imgcard_text"> (1800 jobs) </p>
+        </div>
+        <div class="imgcard">
+            <%=image_tag("food.png" , style: "width: 170px;height: 150px;")%>
+            <p class="imgcard_heading"> Food Services </p>
+            <p class="imgcard_text"> (4286 jobs) </p>
+        </div>
+    </div>
+    
+</div>
