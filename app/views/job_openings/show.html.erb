@@ -21,7 +21,7 @@
   <%= link_to "Back to job openings", job_openings_path %> 
   </button>
   <button>
-  <%= link_to "Destroy this job opening", @job_opening, method: :delete%> 
+  <%= link_to "Destroy this job opening", @job_opening, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
   </button>
   <%# Write a link to show all applications of this particular jobid %>
   <button>

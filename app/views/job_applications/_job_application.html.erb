@@ -17,11 +17,6 @@
 </p>
 
 <p>
-    <strong>Resume Link:</strong>
-    <%= job_application.resume_link %>
-</p>
-
-<p>
     <strong>Work Experience:</strong>
     <%= job_application.work_experience %>
 </p>
@@ -54,6 +49,13 @@
 <p>
     <strong>Zip Code:</strong>
     <%= job_application.zip %>
+</p>
+
+<p style="display: flex;
+    flex-direction: column;
+    row-gap: 10px;">
+    <strong>Resume :</strong>
+    <embed src = "<%= url_for(job_application.resume) %>" width = "500" height = "350" type = 'application/pdf' />
 </p>
 
 </div>

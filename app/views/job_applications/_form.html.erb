@@ -1,43 +1,64 @@
 <%= form_with model: job_application, url: job_opening_job_applications_path(@job_application.job_opening_id) do |form| %>
-    <% if job_application.errors.any? %>
-        <div style="color: red">
-        <h2><%= pluralize(job_application.errors.count, "error") %> prohibited this job_application from being saved:</h2>
-     
-        <ul>
-            <% job_application.errors.each do |error| %>
-            <li><%= error.full_message %></li>
-            <% end %>
-        </ul>
-        </div>
-    <% end %>
-
-    <%= form.hidden_field :applicant_id %>
-    <%= form.hidden_field :job_opening_id %>
+    <%= form.hidden_field :applicant_id, value: current_applicant.id%>
+    <%= form.hidden_field :job_opening_id, value: @job_application.job_opening_id %>
+    <%= form.hidden_field :email, value: current_applicant.email %> 
 
     <div>
         <%= form.label :name, style: "display: block" %>
         <%= form.text_field :name %>
     </div>
-     
-    <div>
-        <%= form.label :email, style: "display: block" %>
-        <%= form.text_field :email %>
-    </div>
-     
+
+    <%if job_application.errors[:name].any? %>
+        <div style="color: red;
+    display: flex;
+    margin-top: -17px;
+    margin-bottom: -20px;
+    margin-left: -54px;">
+            <ul>
+                <% job_application.errors[:name].each do |error| %>
+                <li><%= error %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
     <div>
         <%= form.label :phone, style: "display: block" %>
         <%= form.text_field :phone %>
     </div>
-     
-    <div>
-        <%= form.label :resume_link, style: "display: block" %>
-        <%= form.text_field :resume_link %>
-    </div>
+    
+    <%if job_application.errors[:phone].any? %>
+        <div style="color: red;
+    display: flex;
+    margin-top: -17px;
+    margin-bottom: -20px;
+    margin-left: -54px;">
+            <ul>
+                <% job_application.errors[:phone].each do |error| %>
+                <li><%= error %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
      
     <div class="field">
         <%= form.label :address_line_1, style: "display: block" %>
         <%= form.text_field :address_line_1 %>
     </div>
+
+    <%if job_application.errors[:address_line_1].any?%>
+        <div style="color: red;
+        display: flex;
+        margin-top: -17px;
+        margin-bottom: -20px;
+        margin-left: -54px;">
+            <ul>
+                <% job_application.errors[:address_line_1].each do |error| %>
+                <li><%= error %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
 
     <div class="field">
         <%= form.label :address_line_2, style: "display: block" %>
@@ -49,25 +70,120 @@
         <%= form.text_field :city %>
     </div>
 
+    <%if job_application.errors[:city].any?%>
+        <div style="color: red;
+        display: flex;
+        margin-top: -17px;
+        margin-bottom: -20px;
+        margin-left: -54px;">
+            <ul>
+                <% job_application.errors[:city].each do |error| %>
+                <li><%= error %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
     <div class="field">
         <%= form.label :state, style: "display: block" %>
         <%= form.text_field :state %>
     </div>
+
+    <%if job_application.errors[:state].any?%>
+        <div style="color: red;
+        display: flex;
+        margin-top: -17px;
+        margin-bottom: -20px;
+        margin-left: -54px;">
+            <ul>
+                <% job_application.errors[:state].each do |error| %>
+                <li><%= error %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
 
     <div class="field">
         <%= form.label :zip, style: "display: block" %>
         <%= form.text_field :zip %>
     </div>
 
+    <%if job_application.errors[:zip].any?%>
+        <div style="color: red;
+        display: flex;
+        margin-top: -17px;
+        margin-bottom: -20px;
+        margin-left: -54px;">
+            <ul>
+                <% job_application.errors[:zip].each do |error| %>
+                <li><%= error %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
     <div class="field">
         <%= form.label :education, style: "display: block" %>
         <%= form.text_field :education %>
     </div>
 
+    <%if job_application.errors[:education].any?%>
+        <div style="color: red;
+        display: flex;
+        margin-top: -17px;
+        margin-bottom: -20px;
+        margin-left: -54px;">
+            <ul>
+                <% job_application.errors[:education].each do |error| %>
+                <li><%= error %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
     <div class="field">
         <%= form.label :work_experience, style: "display: block" %>
         <%= form.text_area :work_experience %>
     </div>
+
+    <%if job_application.errors[:work_experience].any?%>
+        <div style="color: red;
+        display: flex;
+        margin-top: -17px;
+        margin-bottom: -20px;
+        margin-left: -54px;">
+            <ul>
+                <% job_application.errors[:work_experience].each do |error| %>
+                <li><%= error %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <div class="field" style="
+        display: flex;
+        flex-direction: column;
+        /* padding-left: 17px; */
+        /* margin-left: 100px; */
+        width: 184px;
+    ">
+        <%= form.label :resume, style: "display: block" %>
+        <%= form.file_field :resume%>
+    </div>
+
+    <%if job_application.errors[:resume].any?%>
+        <div style="color: red;
+        display: flex;
+        margin-top: -17px;
+        margin-bottom: -20px;
+        margin-left: -54px;">
+            <ul>
+                <% job_application.errors[:resume].each do |error| %>
+                <li><%= error %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
     <div>
         <%= form.submit %>
     </div>
