@@ -1,0 +1,144 @@
+<%= form_with(model: job_opening) do |form| %>
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+  <%if job_opening.errors[:title].any? %>
+        <div style="color: red;
+    display: flex;
+    margin-top: -17px;
+    margin-bottom: -14px;
+    margin-left: 10px;">
+            <ul>
+                <% job_opening.errors[:title].each do |error| %>
+                <li><%= error %></li>
+                <% end %>
+            </ul>
+        </div>
+  <% end %>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_area :description %>
+  </div>
+
+  <%if job_opening.errors[:description].any? %>
+        <div style="color: red;
+    display: flex;
+    margin-top: -17px;
+    margin-bottom: -14px;
+    margin-left: 10px;">
+            <ul>
+                <% job_opening.errors[:description].each do |error| %>
+                <li><%= error %></li>
+                <% end %>
+            </ul>
+        </div>
+  <% end %>
+
+  <div>
+    <%= form.label :company_name, style: "display: block" %>
+    <%= form.text_field :company_name %>
+  </div>
+
+  <%if job_opening.errors[:company_name].any? %>
+        <div style="color: red;
+    display: flex;
+    margin-top: -17px;
+    margin-bottom: -14px;
+    margin-left: 10px;">
+            <ul>
+                <% job_opening.errors[:company_name].each do |error| %>
+                <li><%= error %></li>
+                <% end %>
+            </ul>
+        </div>
+  <% end %>
+
+  <div>
+    <%= form.label :salary, style: "display: block" %>
+    <%= form.number_field :salary %>
+  </div>
+
+  <%if job_opening.errors[:salary].any? %>
+        <div style="color: red;
+    display: flex;
+    margin-top: -17px;
+    margin-bottom: -14px;
+        margin-left: -120px;">
+            <ul>
+                <% job_opening.errors[:salary].each do |error| %>
+                <li><%= error %></li>
+                <% end %>
+            </ul>
+        </div>
+  <% end %>
+
+  <div>
+    <%= form.label :location, style: "display: block" %>
+    <%= form.text_field :location %>
+  </div>
+
+  <%if job_opening.errors[:location].any? %>
+        <div style="color: red;
+    display: flex;
+    margin-top: -17px;
+    margin-bottom: -14px;
+    margin-left: -120px;">
+            <ul>
+                <% job_opening.errors[:location].each do |error| %>
+                <li><%= error %></li>
+                <% end %>
+            </ul>
+        </div>
+  <% end %>
+
+  <div>
+    <%= form.label :education_requirements, style: "display: block" %>
+    <%= form.text_field :education_requirements %>
+  </div>
+
+    
+  <div>
+    <%= form.label :experience_years, style: "display: block" %>
+    <%= form.number_field :experience_years %>
+  </div>
+
+  <%if job_opening.errors[:experience_years].any? %>
+        <div style="color: red;
+    display: flex;
+    margin-top: -17px;
+    margin-bottom: -14px;
+    margin-left: -120px;">
+            <ul>
+                <% job_opening.errors[:experience_years].each do |error| %>
+                <li><%= error %></li>
+                <% end %>
+            </ul>
+        </div>
+  <% end %>
+
+  <div>
+    <%= form.label :skills, style: "display: block" %>
+    <%= form.text_field :skills %>
+  </div>
+
+  <%if job_opening.errors[:skills].any? %>
+        <div style="color: red;
+    display: flex;
+    margin-top: -17px;
+    margin-bottom: -14px;
+    margin-left: -120px;">
+            <ul>
+                <% job_opening.errors[:skills].each do |error| %>
+                <li><%= error %></li>
+                <% end %>
+            </ul>
+        </div>
+  <% end %>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

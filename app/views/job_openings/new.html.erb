@@ -1,0 +1,19 @@
+<h1 style="display: flex; justify-content: center; font-family: monospace; font-size: 30px; margin-top: 20px; margin-bottom: 20px;">New job opening</h1>
+
+<%= render "form", job_opening: @job_opening %>
+
+<br>
+
+<button style="padding: 16px;
+    font-family: monospace;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: 900;
+    background-color: cornflowerblue;
+    border-radius: 14px;
+    border-color: transparent;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;">
+  <%= link_to "Back to job openings", job_openings_path %>
+</button>

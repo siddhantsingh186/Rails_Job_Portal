@@ -1,0 +1,14 @@
+<h1 style="display: flex; justify-content: center; font-family: monospace; font-size: 30px; margin-top: 20px; margin-bottom: 20px;">Editing job opening</h1>
+
+<%= render "form", job_opening: @job_opening %>
+<% stylesheet_link_tag "job_opening_show" ,"data-turbo-track": "reload"%>
+<br>
+
+<div class="adminbuttons">
+<button>
+  <%= link_to "Show this job opening", @job_opening %>
+</button>
+<button>
+  <%= link_to "Back to job openings", job_openings_path %>
+</button>
+</div>

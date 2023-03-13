@@ -1,0 +1,43 @@
+<% stylesheet_link_tag "job_opening_show" ,"data-turbo-track": "reload"%>
+<div id="<%= dom_id job_opening %>" class="jobcard">
+  <p>
+    <strong>Title:</strong>
+    <%= job_opening.title %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= job_opening.description %>
+  </p>
+
+  <p>
+    <strong>Company name:</strong>
+    <%= job_opening.company_name %>
+  </p>
+
+  <p>
+    <strong>Salary:</strong>
+    <%= job_opening.salary %>
+  </p>
+
+  <p>
+    <strong>Location:</strong>
+    <%= job_opening.location %>
+  </p>
+
+  <p>
+    <strong>Education requirements:</strong>
+    <%= job_opening.education_requirements %>
+  </p>
+
+  <p>
+    <strong>Experience years:</strong>
+    <%= job_opening.experience_years %>
+  </p>
+
+  <p>
+    <strong>Skills:</strong>
+    <%= job_opening.skills %>
+  </p>
+
+</div>
